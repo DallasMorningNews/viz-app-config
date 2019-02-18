@@ -1,0 +1,46 @@
+version: 1
+
+deployBaseUrl: https://interactives.dallasnews.com/graphics
+deployType: s3
+
+awsBucket: interactives.dallasnews.com
+awsPrefix: graphics
+awsRegion: us-east-1
+
+awsAccessKeyId: null
+awsSecretAccessKey: null
+
+siteConfigName: The Dallas Morning News
+
+extraPreviewCss: |-
+  body { font-family: 'Montserrat', Helvetica, Arial, sans-serif; }
+
+# CSS to add out custom fonts to the output ai2html file. The <style> tags within break
+# up the <style> block so that the @import can be the first rule in its own block, which
+# is required for @import to work
+# see https://fonts.google.com/selection?selection.family=Montserrat:400,700,900|PT+Serif:400,400i,700,700i&query=pt+serif
+extraEmbedCss: |-
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900|PT+Serif:400,400i,700,700i');
+
+# This maps the Illustrator names for the full range of fonts for Monsterrat and PT Serif
+# to the fonts we use in the interactives template (CSS above). Just as with interactives,
+# we use the faux italic for Monsterrat.
+ai2htmlFonts: |-
+  {"aifont":"PTSerif-Regular","family":"'PT Serif', Georgia, Times, serif","weight":"400","style":""},
+  {"aifont":"PTSerif-Bold","family":"'PT Serif', Georgia, Times, serif","weight":"700","style":""},
+  {"aifont":"PTSerif-Italic","family":"'PT Serif', Georgia, Times, serif","weight":"400","style":"italic"},
+  {"aifont":"PTSerif-BoldItalic","family":"'PT Serif', Georgia, Times, serif","weight":"700","style":"italic"},
+  {"aifont":"Montserrat-Regular","family":"Montserrat, helvetica, sans-serif","weight":"400","style":""},
+  {"aifont":"Montserrat-Italic","family":"Montserrat, helvetica, sans-serif","weight":"400","style":"italic"},
+  {"aifont":"Montserrat-Medium","family":"Montserrat, helvetica, sans-serif","weight":"700","style":""},
+  {"aifont":"Montserrat-MediumItalic","family":"Montserrat, helvetica, sans-serif","weight":"700","style":"italic"},
+  {"aifont":"Montserrat-SemiBold","family":"Montserrat, helvetica, sans-serif","weight":"700","style":""},
+  {"aifont":"Montserrat-SemiBoldItalic","family":"Montserrat, helvetica, sans-serif","weight":"700","style":"italic"},
+  {"aifont":"Montserrat-Bold","family":"Montserrat, helvetica, sans-serif","weight":"700","style":""},
+  {"aifont":"Montserrat-BoldItalic","family":"Montserrat, helvetica, sans-serif","weight":"700","style":"italic"},
+  {"aifont":"Montserrat-ExtraBold","family":"Montserrat, helvetica, sans-serif","weight":"900","style":""},
+  {"aifont":"Montserrat-ExtraBoldItalic","family":"Montserrat, helvetica, sans-serif","weight":"900","style":"italic"},
+  {"aifont":"Montserrat-Black","family":"Montserrat, helvetica, sans-serif","weight":"900","style":""},
+  {"aifont":"Montserrat-BlackItalic","family":"Montserrat, helvetica, sans-serif","weight":"900","style":"italic"},
